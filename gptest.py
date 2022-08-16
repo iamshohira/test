@@ -20,6 +20,10 @@ else:
     else:
         print(f"Please visit the manual site to upgrade.")
     if len(sys.argv) > 1:
-        repo.git.checkout(latest_tag)
-        print("update complete.")
-        print("Please restart JEMViewer.")
+        if current_major == latest_major:
+            repo.git.checkout(latest_tag)
+            print("update complete.")
+            print("Please restart JEMViewer.")
+        else:
+            print("major upgrade cannot be done from JEMViewer.")
+            print("Please visit the manual site to upgrade.")
