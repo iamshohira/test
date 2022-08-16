@@ -19,4 +19,7 @@ else:
         print(f"Please type JEMViewer.update() to update.")
     else:
         print(f"Please visit the manual site to upgrade.")
-    
+    if len(sys.argv) > 1:
+        repo.git.checkout(latest_tag)
+        print("update complete.")
+        print("Please restart JEMViewer.")
